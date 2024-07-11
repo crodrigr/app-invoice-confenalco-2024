@@ -15,7 +15,20 @@ INSERT INTO clientes (nombres, apellidos, email, direccion, celular, fecha_nacim
 INSERT INTO clientes (nombres, apellidos, email, direccion, celular, fecha_nacimiento,region_id) VALUES ("Diego", "Hernández", "diego.hernandez@example.com", "Av. Principal 1234, Ciudad", "9012345678", "1987-03-25",2);
 INSERT INTO clientes (nombres, apellidos, email, direccion, celular, fecha_nacimiento,region_id)  VALUES ("Sofía", "García", "sofia.garcia@example.com", "Callejón 4567, Pueblo", "3456789012", "1991-03-25",1);
 
-INSERT INTO facturas (fecha,descripcion,cliente_id) VALUES ("2024-07-01","descripcion",1);
-INSERT INTO facturas (fecha,descripcion,cliente_id) VALUES ("2024-07-02","descripcion",1);
-INSERT INTO facturas (fecha,descripcion,cliente_id) VALUES ("2024-07-03","descripcion",1);
-INSERT INTO facturas (fecha,descripcion,cliente_id) VALUES ("2024-07-08","descripcion",1);
+INSERT INTO facturas (create_at,descripcion,observacion,cliente_id) VALUES ("2024-07-01","observacion","descripcion",1);
+INSERT INTO facturas (create_at,descripcion,observacion,cliente_id) VALUES ("2024-07-02","observacion","descripcion",1);
+INSERT INTO facturas (create_at,descripcion,observacion,cliente_id) VALUES ("2024-07-03","observacion","descripcion",1);
+INSERT INTO facturas (create_at,descripcion,observacion,cliente_id) VALUES ("2024-07-08","observacion","descripcion",1);
+
+
+INSERT INTO productos (create_at,nombre,precio,) VALUES ("2024-07-08","tv 15",1000);
+INSERT INTO productos (create_at,nombre,precio,) VALUES ("2024-07-08","xiami pro 11",700);
+INSERT INTO productos (create_at,nombre,precio,) VALUES ("2024-07-08","tv 65",2000);
+INSERT INTO productos (create_at,nombre,precio,) VALUES ("2024-07-08","iphone pro 13",3000);
+
+INSERT INTO items_factura (cantidad,producto_id,factura_id) VALUES (2,1,1);
+INSERT INTO items_factura (cantidad,producto_id,factura_id) VALUES (1,2,1);
+INSERT INTO items_factura (cantidad,producto_id,factura_id) VALUES (2,3,2);
+INSERT INTO items_factura (cantidad,producto_id,factura_id) VALUES (1,4,2);
+
+
