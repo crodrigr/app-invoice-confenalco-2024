@@ -1,0 +1,243 @@
+{
+	"info": {
+		"_postman_id": "1b76ddb3-119f-4b48-8cfe-1a99103a8949",
+		"name": "AppInvoices-Confenalco-2024",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11015146"
+	},
+	"item": [
+		{
+			"name": "getFacturraById",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\n    {\n        \"nombre\": \"Camilo Ernesto\",\n        \"apellido\": \"Rodriguez Moreno\",\n        \"email\": \"crodrigr@gm.com\",\n        \"direccion\": \"Cra 23 No45-98 Apto 1502\",\n        \"celular\": \"3145800001\",\n        \"fechaNacimiento\": \"2024-07-05\"\n    }\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/facturas/filtra-productos/xiallll",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"facturas",
+						"filtra-productos",
+						"xiallll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "guardarFactura",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \n    \"createAt\": \"2024-07-01\",\n    \"descripcion\": \"observacion\",\n    \"observacion\": \"descripcion\",\n    \"cliente\": {\n        \"id\": 1,\n        \"nombre\": \"Juan\",\n        \"apellido\": \"Perez\",\n        \"email\": \"juan.perez@example.com\",\n        \"direccion\": \"Calle 123, Ciudad\",\n        \"celular\": \"1234567890\",\n        \"fechaNacimiento\": \"1995-02-23T05:00:00.000+00:00\",\n        \"region\": {\n            \"id\": 1,\n            \"nombre\": \"CENTRO AMERICA\"\n        }\n    },\n    \"items\": [\n        {\n            \n            \"cantidad\": 2,\n            \"producto\": {\n                \"id\": 1,\n                \"nombre\": \"tv 15\",\n                \"precio\": 1000.0,\n                \"createAt\": \"2024-07-08T05:00:00.000+00:00\"\n            }\n        },\n        {\n           \n            \"cantidad\": 1,\n            \"producto\": {\n                \"id\": 2,\n                \"nombre\": \"xiami pro 11\",\n                \"precio\": 700.0,\n                \"createAt\": \"2024-07-08T05:00:00.000+00:00\"\n            }\n           \n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/facturas/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"facturas",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "filtrarProductosTermino",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/facturas/filtra-productos/xia",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"facturas",
+						"filtra-productos",
+						"xia"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getClienteById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/clientes/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllClientes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/clientes/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "guardarCliente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \n    \"nombre\": \"Juan\",\n    \"apellido\": \"Ramirez\",\n    \"email\": \"juan.ramirez@example.com\",\n    \"direccion\": \"Carrera 8222, Villa\",\n    \"celular\": \"5678901234\",\n    \"fechaNacimiento\": \"1985-03-25T05:00:00.000+00:00\",\n    \"region\": {\n        \"id\": 3,\n        \"nombre\": \"SUR AMERICA\"\n    },\n    \"facturas\": []\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/clientes/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "editarCliente",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \n    \"nombre\": \"Juanxxxx\",\n    \"apellido\": \"Ramirez\",\n    \"email\": \"juan.ramirez@example.com\",\n    \"direccion\": \"Carrera 8222, Villa\",\n    \"celular\": \"5678901234\",\n    \"fechaNacimiento\": \"1985-03-25T05:00:00.000+00:00\",\n    \"region\": {\n        \"id\": 3,\n        \"nombre\": \"SUR AMERICA\"\n    },\n    \"facturas\": []\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/clientes/9",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eliminarCliente",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \n    \"nombre\": \"Juanxxxx\",\n    \"apellido\": \"Ramirez\",\n    \"email\": \"juan.ramirez@example.com\",\n    \"direccion\": \"Carrera 8222, Villa\",\n    \"celular\": \"5678901234\",\n    \"fechaNacimiento\": \"1985-03-25T05:00:00.000+00:00\",\n    \"region\": {\n        \"id\": 3,\n        \"nombre\": \"SUR AMERICA\"\n    },\n    \"facturas\": []\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/clientes/9",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllRegiones",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \n    \"nombre\": \"Juanxxxx\",\n    \"apellido\": \"Ramirez\",\n    \"email\": \"juan.ramirez@example.com\",\n    \"direccion\": \"Carrera 8222, Villa\",\n    \"celular\": \"5678901234\",\n    \"fechaNacimiento\": \"1985-03-25T05:00:00.000+00:00\",\n    \"region\": {\n        \"id\": 3,\n        \"nombre\": \"SUR AMERICA\"\n    },\n    \"facturas\": []\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/clientes/regiones",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes",
+						"regiones"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
