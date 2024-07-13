@@ -12,9 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.confenalco.app_invoice.repositories.entities.Cliente;
+import com.confenalco.app_invoice.repositories.entities.Region;
 import com.confenalco.app_invoice.services.ClienteService;
 
 import lombok.AllArgsConstructor;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 @RequestMapping("/clientes")
@@ -48,6 +51,12 @@ public class ClienteController {
     public void deleteCliente(@PathVariable Long id){
         clienteService.delete(id);
     }
+
+    @GetMapping("/regiones")
+    public List<Region> findAllRegiones() {
+        return clienteService.findAllRegiones();
+    }
+    
 
 
 }

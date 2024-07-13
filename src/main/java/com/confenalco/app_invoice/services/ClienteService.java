@@ -3,6 +3,7 @@ package com.confenalco.app_invoice.services;
 import java.util.List;
 
 import com.confenalco.app_invoice.repositories.entities.Cliente;
+import com.confenalco.app_invoice.repositories.entities.Region;
 
 public interface ClienteService {
 
@@ -15,6 +16,8 @@ public interface ClienteService {
     Cliente update(Cliente cliente, Long id);
 
     void delete(Long id);
+
+    List<Region> findAllRegiones();
 
     
 

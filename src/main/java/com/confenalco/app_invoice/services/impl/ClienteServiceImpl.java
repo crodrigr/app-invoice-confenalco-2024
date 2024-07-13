@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.confenalco.app_invoice.repositories.ClienteRepository;
 import com.confenalco.app_invoice.repositories.entities.Cliente;
+import com.confenalco.app_invoice.repositories.entities.Region;
 import com.confenalco.app_invoice.services.ClienteService;
 import com.confenalco.app_invoice.utils.exceptions.ClienteNotFoundException;
 
@@ -65,6 +66,12 @@ public class ClienteServiceImpl implements ClienteService {
     @Transactional
     public void delete(Long id) {
         clienteRepository.deleteById(id);
+    }
+
+    @Override
+    @Transactional(readOnly=true)
+    public List<Region> findAllRegiones() {
+        return clienteRepository.findAllRegiones();
     }
 
 }
