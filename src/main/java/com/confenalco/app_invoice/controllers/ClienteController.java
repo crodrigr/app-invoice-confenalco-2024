@@ -43,7 +43,6 @@ public class ClienteController {
         return clienteService.findById(id);
 
     }
-
     
 
     @PostMapping("/")
