@@ -24,7 +24,6 @@ import com.confenalco.app_invoice.services.ClienteService;
 
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController
@@ -79,8 +78,36 @@ public class ClienteController {
     }
 
     @PutMapping("/{id}")
-    public Cliente updateCliente(@RequestBody Cliente cliente,@PathVariable Long id){
-        return clienteService.update(cliente,id);        
+    public ResponseEntity<?> updateCliente(@Valid @RequestBody Cliente cliente, BindingResult result, @PathVariable Long id ){
+        
+         Cliente clientUpdate=null;
+
+         Map<String,Object> response=new HashMap<>();
+
+         if(result.hasErrors()){
+            List<String> errors=result.getFieldErrors()
+                                .stream()
+                                .map(err -> "El campo: "+ err.getField()+" "+err.getDefaultMessage())
+                                .collect(Collectors.toList());
+            response.put("errors",errors);
+            return new ResponseEntity<Map<String,Object>>(response,HttpStatus.BAD_REQUEST);
+         }
+
+         try{
+
+            clientUpdate=clienteService.update(cliente,id);        
+
+         }catch(DataAccessException e){
+            response.put("mensaje","No se puedo actulizar el cliente por un error en la base de datos");
+            response.put("error",e.getMessage().concat(e.getMostSpecificCause().getMessage()));
+            return new ResponseEntity<Map<String,Object>>(response,HttpStatus.INTERNAL_SERVER_ERROR);
+         }
+        
+            response.put("mensaje","El cliente se actualizó correctamente");
+            response.put("cliente",clientUpdate);
+         
+            return new ResponseEntity<Map<String,Object>>(response,HttpStatus.CREATED);
+        
     }
 
     @DeleteMapping("/{id}")
