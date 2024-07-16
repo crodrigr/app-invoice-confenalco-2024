@@ -16,6 +16,9 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -30,16 +33,29 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotEmpty(message = "el nombre no pue estar vacio")
+    @Size(min=3,max=60,message="el tamaño debe estar entre 3 y 60 caracteres")
     @Column(nullable = false,name="nombres") 
     private String nombre;
+
+    @NotEmpty(message = "el apellido no pue estar vacio")
+    @Size(min=3,max=60,message="el tamaño debe estar entre 3 y 60 caracteres")
     @Column(nullable = false,name="apellidos")
     private String apellido;
+
     @Column(nullable = false,unique = true)
+    @Email(message="el email con cumple con el formato. Debe tener la @ y dominio .com")
     private String email;
+
+    @NotEmpty(message = "la dirección no pue estar vacia")
     @Column(nullable = false)
     private String direccion;
+
+    @NotEmpty(message = "el celular no pue estar vacia")
     @Column(nullable = false)
     private String celular;
+
     @Column(nullable = false)
     private Date   fechaNacimiento;
 
