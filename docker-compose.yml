@@ -1,0 +1,35 @@
+services:
+
+ db-mariadb:
+   image: mariadb:latest
+   environment:
+     - MYSQL_ROOT_PASSWORD=admin
+     - MYSQL_DATABASE=bd_invoice_confenalco
+   volumes:
+     - mariadb_data:/var/lib/mysql
+   ports:
+     - "3309:3306"
+   networks:
+     - app-invoice-network 
+ 
+ app-invoice:
+   image: app-invoice-demo:latest
+   ports: 
+     - 8080:8080
+   environment:
+     - SPRING_DATASOURCE_URL=jdbc:mariadb://db-mariadb:3306/bd_invoice_confenalco
+     - SPRING_DATASOURCE_USERNAME=root
+     - SPRING_DATASOURCE_PASSWORD=admin
+   networks:
+     - app-invoice-network
+   depends_on:
+     - db-mariadb
+
+volumes:
+  mariadb_data:    
+
+networks:
+  app-invoice-network:
+    driver: bridge
+  
+      
