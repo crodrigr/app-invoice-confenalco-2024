@@ -13,7 +13,8 @@ services:
      - app-invoice-network 
  
  app-invoice:
-   image: crodrigr/app-invoice-demo:latest
+   #image: crodrigr/app-invoice-demo:latest remoto
+   image: app-invoice:latest 
    ports: 
      - 8080:8080
    environment:
